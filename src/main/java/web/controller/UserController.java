@@ -36,7 +36,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/edit/{id}")
-    public String editUser(@PathVariable int id, Model model) {
+    public String editUser(@PathVariable long id, Model model) {
         model.addAttribute("user", userService.getUser(id));
         return "/edit";
     }
@@ -48,7 +48,7 @@ public class UserController {
     }
 
     @GetMapping(value = "/remove/{id}")
-    public String removeUser(@PathVariable int id) {
+    public String removeUser(@PathVariable long id) {
         userService.deleteUser(id);
         return "redirect:/users";
     }
